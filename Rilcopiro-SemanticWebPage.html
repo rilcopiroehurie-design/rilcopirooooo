@@ -1,0 +1,469 @@
+ <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Five beautiful places in the Philippines: Intramuros in Manila, Vigan in Ilocos Sur, Sohoton Cove in Samar, Tayid Lighthouse in Batanes, and Miagao Church in Iloilo.">
+    <title>Beautiful Spots in the Philippines</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --deep-sea: #0c3b4a;
+        --lagoon: #17808a;
+        --shallows: #dff1ef;
+        --mist: #f5f9f8;
+        --ink: #1b2a2e;
+        --muted: #46606a;
+        --mango: #f4b43a;
+        --serif: "Fraunces", Georgia, "Times New Roman", serif;
+        --sans: "Nunito Sans", "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: var(--sans);
+        font-size: 1.0625rem;
+        line-height: 1.7;
+        color: var(--ink);
+        background: var(--mist);
+      }
+
+      a:focus-visible {
+        outline: 3px solid var(--mango);
+        outline-offset: 3px;
+      }
+
+      /* Skip link: visible only when focused with the keyboard */
+      .skip-link {
+        position: absolute;
+        left: 1rem;
+        top: -4rem;
+        z-index: 20;
+        padding: 0.6rem 1rem;
+        border-radius: 0.5rem;
+        font-weight: 700;
+        color: var(--deep-sea);
+        background: var(--mango);
+        text-decoration: none;
+      }
+
+      .skip-link:focus {
+        top: 1rem;
+      }
+
+      /* ---------- Header ---------- */
+      header {
+        position: relative;
+        padding: 5.5rem 1.5rem 6rem;
+        text-align: center;
+        color: #ffffff;
+        background:
+          radial-gradient(circle at 80% 15%, rgba(244, 180, 58, 0.35), transparent 22%),
+          linear-gradient(180deg, rgba(12, 59, 74, 0.15), rgba(12, 59, 74, 0.6)),
+          linear-gradient(135deg, var(--lagoon), var(--deep-sea));
+      }
+
+      header h1 {
+        margin: 0 auto 1rem;
+        max-width: 18ch;
+        font-family: var(--serif);
+        font-weight: 800;
+        font-size: clamp(2.4rem, 7vw, 4.2rem);
+        line-height: 1.08;
+        letter-spacing: -0.01em;
+      }
+
+      header p {
+        margin: 0 auto;
+        max-width: 40ch;
+        font-size: 1.2rem;
+        color: var(--shallows);
+      }
+
+      /* ---------- Navigation ---------- */
+      nav {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background: var(--deep-sea);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+      }
+
+      nav ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.25rem 0.5rem;
+        margin: 0;
+        padding: 0.6rem 1rem;
+        list-style: none;
+      }
+
+      nav a {
+        display: block;
+        padding: 0.35rem 0.9rem;
+        border-radius: 999px;
+        font-weight: 600;
+        font-size: 0.95rem;
+        color: #ffffff;
+        text-decoration: none;
+        transition: background 0.2s, color 0.2s;
+      }
+
+      nav a:hover,
+      nav a.active {
+        background: var(--mango);
+        color: var(--deep-sea);
+      }
+
+      /* ---------- Main content ---------- */
+      main {
+        max-width: 66rem;
+        margin: 0 auto;
+        padding: 3rem 1.5rem 4rem;
+      }
+
+      section,
+      article {
+        scroll-margin-top: 4.5rem;
+      }
+
+      #intro {
+        max-width: 42rem;
+        margin: 0 auto 4.5rem;
+        text-align: center;
+      }
+
+      h2 {
+        margin: 0 0 0.75rem;
+        font-family: var(--serif);
+        font-weight: 600;
+        font-size: clamp(1.7rem, 4vw, 2.3rem);
+        line-height: 1.2;
+        color: var(--deep-sea);
+      }
+
+      article {
+        display: grid;
+        grid-template-columns: 1.15fr 1fr;
+        grid-template-areas:
+          "image title"
+          "image text"
+          "image facts";
+        grid-template-rows: auto auto 1fr;
+        column-gap: 2.5rem;
+        align-items: start;
+        margin-bottom: 5rem;
+      }
+
+      article:nth-of-type(even) {
+        grid-template-columns: 1fr 1.15fr;
+        grid-template-areas:
+          "title image"
+          "text image"
+          "facts image";
+      }
+
+      article h2 {
+        grid-area: title;
+        align-self: end;
+        padding-top: 0.5rem;
+        border-top: 4px solid var(--mango);
+      }
+
+      article figure {
+        grid-area: image;
+        margin: 0;
+      }
+
+      article p {
+        grid-area: text;
+        margin: 0;
+        max-width: 55ch;
+      }
+
+      figure img {
+        display: block;
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+        border-radius: 0.75rem;
+        background: var(--shallows);
+        box-shadow: 0 10px 30px rgba(12, 59, 74, 0.18);
+      }
+
+      figcaption {
+        margin-top: 0.6rem;
+        font-size: 0.9rem;
+        font-style: italic;
+        color: var(--muted);
+      }
+
+      /* Video slot below each picture (space above it separates it from the photo) */
+      .place-video {
+        max-width: 80%;
+        margin: 2.5rem auto 0;
+      }
+
+      .place-video video {
+        display: block;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        border-radius: 0.75rem;
+        background: var(--deep-sea);
+        box-shadow: 0 10px 30px rgba(12, 59, 74, 0.18);
+      }
+
+      /* Quick facts under each description */
+      .facts {
+        grid-area: facts;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem 2rem;
+        margin: 1.25rem 0 0;
+        padding-top: 1rem;
+        border-top: 1px solid rgba(12, 59, 74, 0.2);
+      }
+
+      .facts div {
+        min-width: 7rem;
+      }
+
+      .facts dt {
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: var(--lagoon);
+      }
+
+      .facts dd {
+        margin: 0;
+        font-weight: 600;
+      }
+
+      /* ---------- Footer ---------- */
+      footer {
+        padding: 2.5rem 1.5rem;
+        text-align: center;
+        font-size: 0.95rem;
+        color: var(--shallows);
+        background: var(--deep-sea);
+      }
+
+      footer p {
+        margin: 0.25rem 0;
+      }
+
+      .back-to-top {
+        display: inline-block;
+        margin-top: 0.75rem;
+        padding: 0.4rem 1.1rem;
+        border-radius: 999px;
+        font-weight: 700;
+        color: var(--deep-sea);
+        background: var(--mango);
+        text-decoration: none;
+      }
+
+      .back-to-top:hover {
+        background: #ffffff;
+      }
+
+      /* ---------- Small screens ---------- */
+      @media (max-width: 760px) {
+        header {
+          padding: 3.5rem 1.25rem 4rem;
+        }
+
+        article,
+        article:nth-of-type(even) {
+          grid-template-columns: 1fr;
+          grid-template-areas:
+            "title"
+            "image"
+            "text"
+            "facts";
+          row-gap: 1rem;
+        }
+
+        article h2 {
+          align-self: start;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        nav a {
+          transition: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#intro">Skip to content</a>
+
+    <header id="top">
+      <h1>Beautiful Spots in the Philippines</h1>
+      <p>Five places across Luzon and the Visayas, from walled cities to hidden lagoons.</p>
+    </header>
+
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="#intro">Introduction</a></li>
+        <li><a href="#Manila">Manila</a></li>
+        <li><a href="#Ilocos Sur">Ilocos Sur</a></li>
+        <li><a href="#Samar">Samar</a></li>
+        <li><a href="#Batanes">Batanes</a></li>
+        <li><a href="#IloIlo">Iloilo</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section id="intro">
+        <h2>Introduction</h2>
+        <p>The Philippines has more than 7,000 islands, and each region keeps its own history and scenery.
+          This page visits five places worth seeing: two Spanish-era towns, a lagoon inside a cave,
+          a lighthouse on a green hilltop, and a church famous for its carved facade.</p>
+      </section>
+
+      <article id="Manila">
+        <h2>Intramuros,Manila</h2>
+        <figure>
+          <img src="C:\Users\HP Laptop\Desktop\html\images.jpg" alt="Aerial view of the walled city of Intramuros in Manila." loading="lazy">
+          <figcaption>Aerial view of Intramuros, Manila.</figcaption>
+          <div class="place-video">
+            <video controls preload="metadata" aria-label="Video of Intramuros, Manila">
+              <source src="C:\Users\HP Laptop\Desktop\html\Virtual Tour _ It's More Fun with You in Manila (Intramuros).mp4" type="video/mp4">
+            </video>
+          </div>
+        </figure>
+        <p>Intramuros is the historic walled city of Manila, built by the Spanish in the late 16th century
+          as the seat of colonial government. Its cobblestone streets, centuries-old churches like
+          San Agustin Church, and fortress walls like Fort Santiago make it a living window into
+          the Philippines' colonial past.</p>
+        <dl class="facts">
+          <div><dt>Region</dt><dd>Luzon</dd></div>
+          <div><dt>Known for</dt><dd>Fort Santiago, San Agustin Church</dd></div>
+        </dl>
+      </article>
+
+      <article id="Ilocos Sur">
+        <h2>Vigan,Ilocos Sur</h2>
+        <figure>
+          <img src="C:\Users\HP Laptop\Desktop\html\Vigan (1).jpg" alt="Scenic view of Ilocos Sur with rice terraces and mountains." loading="lazy">
+          <figcaption>Calle crisologo, Vigan, Ilocos Sur.</figcaption>
+          <div class="place-video">
+            <video controls preload="metadata" aria-label="Video of Vigan, Ilocos Sur">
+              <source src="C:\Users\HP Laptop\Desktop\html\Virtual Tour _ It's More Fun with You in Vigan.mp4" type="video/mp4">
+              
+            </video>
+          </div>
+        </figure>
+        <p>Vigan, the capital of Ilocos Sur, is one of the best-preserved Spanish colonial towns in Asia
+          and a UNESCO World Heritage Site. Its cobblestone streets, such as the famous Calle Crisologo,
+          are lined with centuries-old ancestral houses and traveled by horse-drawn kalesas,
+          offering a vivid glimpse into the country's colonial heritage.</p>
+        <dl class="facts">
+          <div><dt>Region</dt><dd>Luzon</dd></div>
+          <div><dt>Known for</dt><dd>Calle Crisologo, kalesa rides</dd></div>
+        </dl>
+      </article>
+
+      <article id="Samar">
+        <h2>Sohoton Cove, Samar</h2>
+        <figure>
+          <img src="C:\Users\HP Laptop\Desktop\html\Sohoton Cove Top 10 - Sohoton Cove_ Top 10 Experiences in the Philippine Paradise (1).jpg" alt="Turquoise lagoon inside Sohoton Cove with stalactites hanging from the cave ceiling." loading="lazy">
+          <figcaption>Sohoton Cove, Samar.</figcaption>
+          <div class="place-video">
+            <video controls preload="metadata" aria-label="Video of Sohoton Cove, Samar">
+              <source src="C:\Users\HP Laptop\Desktop\html\Sohoton Caves & Natural Bridge Park.mp4" type="video/mp4">
+            </video>
+          </div>
+        </figure>
+        <p>A hidden cave lagoon with glowing turquoise water, framed by a ceiling of hanging stalactites.
+          Sunlight filters through the cave mouth, lighting up the lush green cliffs outside
+          and the crystal-clear water below.</p>
+        <dl class="facts">
+          <div><dt>Region</dt><dd>Visayas</dd></div>
+          <div><dt>Known for</dt><dd>Cave lagoon, turquoise water</dd></div>
+        </dl>
+      </article>
+
+      <article id="Batanes">
+        <h2>Tayid Lighthouse, Batanes</h2>
+        <figure>
+          <img src="C:\Users\HP Laptop\Desktop\html\Sabtang, Batanes Island Viewpoint (1).jpg" alt="White Tayid Lighthouse with a red lantern on a green hilltop above the Pacific." loading="lazy">
+          <figcaption>Tayid Lighthouse, Mahatao, Batanes.</figcaption>
+          <div class="place-video">
+            <video controls preload="metadata" aria-label="Video of Tayid Lighthouse, Batanes">
+              <source src="C:\Users\HP Laptop\Desktop\html\LOVE Batanes.mp4" type="video/mp4">
+            </video>
+          </div>
+        </figure>
+        <p>A white lighthouse with a red-capped lantern and a red-roofed keeper's house sits on a rolling
+          green hilltop above the deep blue Pacific. Grassy slopes, rugged coastal cliffs,
+          and a cloud-crowned island in the distance make this one of the most scenic viewpoints in Batanes.</p>
+        <dl class="facts">
+          <div><dt>Region</dt><dd>Luzon (northernmost islands)</dd></div>
+          <div><dt>Known for</dt><dd>Ocean views, rolling hills</dd></div>
+        </dl>
+      </article>
+
+      <article id="IloIlo">
+        <h2>Miagao Church, Iloilo</h2>
+        <figure>
+          <img src= "C:\Users\HP Laptop\Desktop\html\images (2).jpg"alt="Facade of Miagao Church with two bell towers and a carved coconut tree relief." loading="lazy">
+          <figcaption>Santo Tomás de Villanueva Parish Church, Miagao.</figcaption>
+          <div class="place-video">
+            <video controls preload="metadata" aria-label="Video of Miagao Church, Iloilo">
+              <source src=  type="video/mp4">
+              <source src="C:\Users\HP Laptop\Desktop\html\_Miagao church _ Cinematic _ DJI Mini 3 Pro _ 4K.mp4" type="video/mp4">
+            </video>
+          </div>
+        </figure>
+        <p>A UNESCO-listed Baroque landmark built of golden adobe and coral stone, with two sturdy,
+          asymmetrical bell towers and a richly carved facade. Its centerpiece is a coconut tree relief
+          above a statue of St. Christopher, set against a bright blue sky and framed by a colorful garden.</p>
+        <dl class="facts">
+          <div><dt>Region</dt><dd>Visayas</dd></div>
+          <div><dt>Known for</dt><dd>Carved facade, Baroque design</dd></div>
+        </dl>
+      </article>
+    </main>
+
+    <footer>
+      <p>Every island whispers: come, explore, belong.</p>
+      <a class="back-to-top" href="#top">Back to top</a>
+    </footer>
+
+    <script>
+       
+      const links = document.querySelectorAll('nav a');
+      const targets = [...links].map(a => document.querySelector(a.getAttribute('href')));
+
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id));
+          }
+        });
+      }, { rootMargin: '-40% 0px -55% 0px' });
+
+      targets.forEach(t => t && observer.observe(t));
+    </script>
+  </body>
+</html>
